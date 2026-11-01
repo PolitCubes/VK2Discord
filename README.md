@@ -1,3 +1,37 @@
+# VK2Discord
+
+> **Разработка закрыта.**
+
+Форк [MrZillaGold/VK2Discord](https://github.com/MrZillaGold/VK2Discord) (сейчас репозиторий upstream называется `egorprnn/VK2Discord`): бот на Node.js, который забирает новые записи из группы или профиля ВКонтакте и публикует их в канал Discord через вебхуки. К игровым серверам не относится, это отдельный инструмент.
+
+## Что внутри
+
+- TypeScript, исходники в `src`, вспомогательные скрипты в `scripts` (`check.js`, `buildInit.js`, `update.js`), тесты на mocha в `test`.
+- Настройки в `config.json` (пример в `config_example.json`, описание полей в `CONFIG_FIELDS.md`): токен VK, группа, фильтры по ключевым словам, вебхуки Discord и оформление сообщения. Можно задать несколько связок «группа VK → каналы Discord» (`clusters`).
+- `Dockerfile`, `docker-compose.yml`, `Procfile` для запуска в контейнере или на Heroku.
+
+## Сборка
+
+```
+npm install
+npm run build
+npm start
+```
+
+`build` компилирует TypeScript (`tsc`) в `dist`, `start` перед запуском проверяет конфиг (`prestart`). В `package.json` указан Node.js 17.1.0.
+
+## Зависимости
+
+- `vk-io` 4.6, `discord.js` 13.8, `@discordjs/builders`.
+
+## Что изменено относительно оригинала
+
+Оригинал: [MrZillaGold/VK2Discord](https://github.com/MrZillaGold/VK2Discord), версия 3.0.3.
+
+Своих изменений нет, это копия оригинала версии 3.0.3 (коммит `f97bdb8`, 28.07.2022). Ветки `master` и `docker` не опережают upstream ни на один коммит и отстают от него (на 9 и 17 коммитов). Ветки `dependabot/*` созданы ботом Dependabot и тоже не содержат своих правок.
+
+## Оригинальный README
+
 <h2 align="center">
     VK2Discord
 </h2>
